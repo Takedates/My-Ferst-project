@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой блог о путешествиях</title>
+    <title>Блог Вячеслава</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -22,9 +22,16 @@
             background: var(--color-white);
             margin: 0;
             line-height: 1.6;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
         }
 
-        /* Шапка как у Яндекса */
+        /* Шапка на всю ширину */
+        .header, .menu {
+            grid-column: 1 / -1;
+        }
+
         .header {
             background: var(--color-black);
             padding: 20px;
@@ -45,6 +52,7 @@
             gap: 20px;
             padding: 10px 0;
             background: var(--color-light-gray);
+            border-bottom: 1px solid var(--color-gray);
         }
 
         .menu a {
@@ -53,13 +61,52 @@
             font-weight: 600;
         }
 
-        /* Заголовок статьи */
-        .article-header {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
+        /* Основной контент */
+        .main-content {
+            padding: 20px;
         }
 
+        /* Боковое оглавление */
+        .sidebar {
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+            padding: 20px;
+        }
+
+        .toc {
+            background: var(--color-light-gray);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .toc h3 {
+            font-family: 'Manrope', sans-serif;
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+        .toc ul {
+            padding-left: 20px;
+            list-style-type: none;
+        }
+
+        .toc li {
+            margin-bottom: 10px;
+        }
+
+        .toc a {
+            color: var(--color-black);
+            text-decoration: none;
+            display: block;
+            padding: 5px 0;
+        }
+
+        .toc a:hover {
+            color: var(--color-yellow);
+        }
+
+        /* Стили статьи */
         .article-header h2 {
             font-family: 'Manrope', sans-serif;
             font-size: 42px;
@@ -71,23 +118,14 @@
             font-size: 14px;
         }
 
-        /* Текст статьи */
-        .article-content {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
         .article-content h3 {
             font-family: 'Manrope', sans-serif;
             font-size: 28px;
             margin: 40px 0 20px 0;
         }
 
-        /* Фото с подписью */
         .article-photo {
             margin: 30px 0;
-            text-align: center;
         }
 
         .article-photo img {
@@ -101,43 +139,11 @@
             margin-top: 10px;
         }
 
-        /* Список "Что нужно запомнить" */
         .summary {
             background: var(--color-light-gray);
             padding: 30px;
             border-radius: 12px;
             margin: 40px 0;
-        }
-
-        .summary h3 {
-            font-family: 'Manrope', sans-serif;
-            margin-top: 0;
-        }
-
-        .summary ul {
-            padding-left: 20px;
-        }
-
-        /* Оглавление */
-        .toc {
-            background: var(--color-light-gray);
-            padding: 20px;
-            border-radius: 8px;
-            margin: 30px 0;
-        }
-
-        .toc h3 {
-            font-family: 'Manrope', sans-serif;
-            margin-top: 0;
-        }
-
-        .toc a {
-            color: var(--color-black);
-            text-decoration: none;
-        }
-
-        .toc a:hover {
-            text-decoration: underline;
         }
     </style>
 </head>
@@ -149,50 +155,51 @@
 
     <!-- Меню -->
     <div class="menu">
-        <a href="#">Идеи увлечений</a>
-        <a href="#">Крутые места</a>
-        <a href="#">Личный опыт</a>
-        <a href="#">Новости</a>
+        <a href="#">Главная</a>
+        <a href="#">Обо мне</a>
+        <a href="#">Путешествия</a>
+        <a href="#">Контакты</a>
     </div>
 
-    <!-- Заголовок статьи -->
-    <div class="article-header">
-        <h2>Кто ты такой?</h2>
-        <div class="article-meta">
-            <strong>Кузьмин Вячеслав</strong> · расказал что к чему · Обновлено 26 марта 2025
+    <!-- Основной контент -->
+    <div class="main-content">
+        <div class="article-header">
+            <h2>Кто ты такой?</h2>
+            <div class="article-meta">
+                <strong>Кузьмин Вячеслав</strong> · рассказал что к чему · Обновлено 26 марта 2025
+            </div>
+        </div>
+
+        <div class="article-content">
+            <p>Почему мог возникнуть такой вопрос? Да все просто! Вы со мной еще не знакомы...</p>
+            
+            <figure class="article-photo">
+                <img src="images/my-photo.jpg" alt="Моё фото">
+                <figcaption>Источник: Кузьмин Вячеслав / Подъезд</figcaption>
+            </figure>
+
+            <h3>Предыстория</h3>
+            <p>Родился я в городе со звучным названием Кемерово...</p>
+
+            <div class="summary">
+                <h3>Что нужно запомнить</h3>
+                <ul>
+                    <li>Я люблю интересоваться...</li>
+                    <li>Я еще не опытен...</li>
+                    <li>Я очень люблю истории...</li>
+                </ul>
+            </div>
         </div>
     </div>
 
-    <!-- Текст статьи -->
-    <div class="article-content">
-        <p>Почему мог возникнуть такой вопрос? Да все просто! Вы со мной еще не знакомы. Эта страничка была создана, что бы решить эту проблему! </p>
-
-        <!-- Фото с подписью -->
-        <figure class="article-photo">
-            <img src="korea-photo.jpg" alt="Южная Корея">
-            <figcaption>Источник: Кузьмин Вячеслав / Подъезд</figcaption>
-        </figure>
-
-        <h3>Предыстория</h3>
-        <p>Родился я в городе со звучным названием Кемерово, не смотря на то что родился я именно там все же первые моменты своего детства я провел в городе Мариинск. На протяжении 8 лет с момента моего рождения я жил в Мариинске и достаточно не плохо обжился опытом "Что праильно, а что нет", но несмотря на подобное высказывание добрым ребенком я не был. Ну в целом это не так важно главное из всего этого, что я до сих пор живу в г. Кемерово, начиная с 8 лет и заканчивая возростом 20-ти я многое узнал и многое понял, например то что у програмиста обязательно должен быть свой сайт визитка. Единственное, что меня отталкивало от этой идеи это то что тут должны быть сугубо чистая информация без какой либо воды о навыках и достижениях вашей личности. И тут я решил: - А зачем мне быть таким, как и все? Сделаю сайт в виде блога или путеводителя по своей жизни!</p>
-
-        <!-- Список "Что нужно запомнить" -->
-        <div class="summary">
-            <h3>Что нужно запомнить</h3>
-            <ul>
-                <li>Я люблю интересоваться. Не важно чем мне интересно абсолютно все!.</li>
-                <li>Я еще не опытен, как програмист, но многое прожил, как человек, так что всегда готов помочь.</li>
-                <li>Я очень люблю истории, и не важно какие, истории жизни, зданий, стран и т.п. поэтому буду рад послушать что то новое!</li>
-            </ul>
-        </div>
-
-        <!-- Оглавление -->
+    <!-- Боковое оглавление -->
+    <div class="sidebar">
         <div class="toc">
             <h3>Оглавление</h3>
             <ul>
-                <li><a href="#">Кто ты такой?</a></li>
-                <li><a href="#">ыпцупццуцп</a></li>
-                <li><a href="#">Предыстория</a></li>
+                <li><a href="#who">Кто ты такой?</a></li>
+                <li><a href="#history">Предыстория</a></li>
+                <li><a href="#facts">Что нужно запомнить</a></li>
             </ul>
         </div>
     </div>
